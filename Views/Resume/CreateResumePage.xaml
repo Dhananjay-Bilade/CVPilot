@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="CVPilot.Views.Resume.CreateResumePage"
+    Title="Create Resume"
+    BackgroundColor="#F5F7FA">
+
+    <ScrollView>
+
+        <VerticalStackLayout
+            Padding="25"
+            Spacing="20">
+
+            <Label
+                Text="Create New Resume"
+                FontSize="30"
+                FontAttributes="Bold"/>
+
+            <Label
+                Text="Give your resume a name."
+                TextColor="Gray"/>
+
+            <Entry
+
+                x:Name="ResumeName"
+
+                Placeholder="Example : Software Developer Resume"/>
+
+            <Label
+                Text="Resume Category"/>
+
+            <Picker
+                x:Name="CategoryPicker">
+
+                <Picker.Items>
+
+                    <x:String>Professional</x:String>
+
+                    <x:String>Fresher</x:String>
+
+                    <x:String>Student</x:String>
+
+                    <x:String>Academic</x:String>
+
+                </Picker.Items>
+
+            </Picker>
+
+            <Button
+
+                Text="Continue"
+
+                HeightRequest="55"
+
+                BackgroundColor="#2563EB"
+
+                TextColor="White"
+
+                CornerRadius="15"
+
+                Clicked="Continue_Clicked"/>
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+
+</ContentPage>

@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="CVPilot.Views.Sections.ResumeSectionsPage"
+    Title="Resume Sections"
+    BackgroundColor="#F6F8FC">
+
+    <ScrollView>
+
+        <VerticalStackLayout
+            Padding="20"
+            Spacing="15">
+
+            <!-- Header -->
+
+            <Label
+                Text="Resume Builder"
+                FontSize="30"
+                FontAttributes="Bold"
+                TextColor="#1E3A8A"/>
+
+            <Label
+                x:Name="ResumeNameLabel"
+                Text="Resume"
+                FontSize="18"
+                TextColor="Gray"/>
+
+            <!-- Progress -->
+
+            <Grid
+                ColumnDefinitions="*,Auto"
+                Margin="0,5,0,0">
+
+                <Label
+                    Text="Progress"
+                    FontSize="16"
+                    TextColor="Black"
+                    VerticalOptions="Center"/>
+
+                <Label
+                    x:Name="ProgressPercentageLabel"
+                    Grid.Column="1"
+                    Text="0%"
+                    FontSize="16"
+                    FontAttributes="Bold"
+                    TextColor="#2563EB"
+                    VerticalOptions="Center"/>
+
+            </Grid>
+
+            <ProgressBar
+                x:Name="ResumeProgressBar"
+                Progress="0"
+                HeightRequest="8"
+                ProgressColor="#2563EB"
+                HorizontalOptions="Fill"/>
+
+            <!-- Personal -->
+
+            <Button
+                Text="👤 Personal Details"
+                HeightRequest="60"
+                CornerRadius="12"
+                BackgroundColor="White"
+                TextColor="Black"
+                Clicked="Personal_Clicked"/>
+
+            <!-- Education -->
+
+            <Button
+                Text="🎓 Education"
+                HeightRequest="60"
+                CornerRadius="12"
+                BackgroundColor="White"
+                TextColor="Black"
+                Clicked="Education_Clicked"/>
+
+            <!-- Experience -->
+
+            <Button
+                Text="💼 Experience"
+                HeightRequest="60"
+                CornerRadius="12"
+                BackgroundColor="White"
+                TextColor="Black"
+                Clicked="Experience_Clicked"/>
+
+            <!-- Skills -->
+
+            <Button
+                Text="💻 Skills"
+                HeightRequest="60"
+                CornerRadius="12"
+                BackgroundColor="White"
+                TextColor="Black"
+                Clicked="Skills_Clicked"/>
+
+            <!-- Projects -->
+
+            <Button
+                Text="📁 Projects"
+                HeightRequest="60"
+                CornerRadius="12"
+                BackgroundColor="White"
+                TextColor="Black"
+                Clicked="Projects_Clicked"/>
+
+            <!-- Objective -->
+
+            <Button
+                Text="🎯 Career Objective"
+                HeightRequest="60"
+                CornerRadius="12"
+                BackgroundColor="White"
+                TextColor="Black"
+                Clicked="Objective_Clicked"/>
+
+            <!-- Certifications -->
+
+            <Button
+                Text="🏅 Certifications"
+                HeightRequest="60"
+                CornerRadius="12"
+                BackgroundColor="White"
+                TextColor="Black"
+                Clicked="Certifications_Clicked"/>
+
+            <!-- Languages -->
+
+            <Button
+                Text="🌍 Languages"
+                HeightRequest="60"
+                CornerRadius="12"
+                BackgroundColor="White"
+                TextColor="Black"
+                Clicked="Languages_Clicked"/>
+
+            <!-- References -->
+
+            <Button
+                Text="👥 References"
+                HeightRequest="60"
+                CornerRadius="12"
+                BackgroundColor="White"
+                TextColor="Black"
+                Clicked="References_Clicked"/>
+
+            <!-- Achievements -->
+
+            <Button
+                Text="🏆 Achievements"
+                HeightRequest="60"
+                CornerRadius="12"
+                BackgroundColor="White"
+                TextColor="Black"
+                Clicked="Achievements_Clicked"/>
+
+            <!-- Preview -->
+
+            <Button
+                Text="📄 Preview Resume"
+                HeightRequest="60"
+                BackgroundColor="#2563EB"
+                TextColor="White"
+                CornerRadius="12"
+                FontAttributes="Bold"
+                Clicked="PreviewResume_Clicked"/>
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+
+</ContentPage>

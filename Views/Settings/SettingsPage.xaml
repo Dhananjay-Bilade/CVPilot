@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="CVPilot.Views.Settings.SettingsPage"
+    Title="Settings"
+    BackgroundColor="{AppThemeBinding Light=#F5F7FB, Dark=#121212}">
+
+    <ScrollView>
+
+        <VerticalStackLayout
+            Padding="20"
+            Spacing="20">
+
+            <!-- Header -->
+            <VerticalStackLayout Spacing="4">
+
+                <Label
+                    Text="Settings"
+                    FontSize="28"
+                    FontAttributes="Bold"
+                    TextColor="{AppThemeBinding Light=#111827, Dark=White}" />
+
+                <Label
+                    Text="Customize your CVPilot experience"
+                    FontSize="14"
+                    TextColor="{AppThemeBinding Light=#6B7280, Dark=#AAAAAA}" />
+
+            </VerticalStackLayout>
+
+            <!-- Appearance -->
+            <Border
+                Padding="18"
+                BackgroundColor="{AppThemeBinding Light=White, Dark=#1E1E1E}"
+                Stroke="{AppThemeBinding Light=#E5E7EB, Dark=#333333}"
+                StrokeThickness="1">
+
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="14" />
+                </Border.StrokeShape>
+
+                <VerticalStackLayout Spacing="15">
+
+                    <Label
+                        Text="Appearance"
+                        FontSize="19"
+                        FontAttributes="Bold"
+                        TextColor="{AppThemeBinding Light=#111827, Dark=White}" />
+
+                    <Label
+                        Text="Choose how CVPilot looks"
+                        FontSize="13"
+                        TextColor="{AppThemeBinding Light=#6B7280, Dark=#AAAAAA}" />
+
+                    <Grid
+                        ColumnDefinitions="*,Auto"
+                        Padding="0,8">
+
+                        <Label
+                            Text="Theme"
+                            FontSize="16"
+                            VerticalOptions="Center"
+                            TextColor="{AppThemeBinding Light=#374151, Dark=#E5E7EB}" />
+
+                        <Picker
+                            x:Name="ThemePicker"
+                            Grid.Column="1"
+                            Title="Select Theme"
+                            WidthRequest="150"
+                            SelectedIndexChanged="ThemePicker_SelectedIndexChanged">
+
+                            <Picker.Items>
+                                <x:String>Light</x:String>
+                                <x:String>Dark</x:String>
+                                <x:String>System Default</x:String>
+                            </Picker.Items>
+
+                        </Picker>
+
+                    </Grid>
+
+                </VerticalStackLayout>
+
+            </Border>
+
+            <!-- Resume Settings -->
+            <Border
+                Padding="18"
+                BackgroundColor="{AppThemeBinding Light=White, Dark=#1E1E1E}"
+                Stroke="{AppThemeBinding Light=#E5E7EB, Dark=#333333}"
+                StrokeThickness="1">
+
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="14" />
+                </Border.StrokeShape>
+
+                <VerticalStackLayout Spacing="15">
+
+                    <Label
+                        Text="Resume"
+                        FontSize="19"
+                        FontAttributes="Bold"
+                        TextColor="{AppThemeBinding Light=#111827, Dark=White}" />
+
+                    <Label
+                        Text="Set your default resume preferences"
+                        FontSize="13"
+                        TextColor="{AppThemeBinding Light=#6B7280, Dark=#AAAAAA}" />
+
+                    <Grid
+                        ColumnDefinitions="*,Auto"
+                        Padding="0,8">
+
+                        <Label
+                            Text="Default Category"
+                            FontSize="16"
+                            VerticalOptions="Center"
+                            TextColor="{AppThemeBinding Light=#374151, Dark=#E5E7EB}" />
+
+                        <Picker
+                            x:Name="DefaultCategoryPicker"
+                            Grid.Column="1"
+                            Title="Select Category"
+                            WidthRequest="160"
+                            SelectedIndexChanged="DefaultCategoryPicker_SelectedIndexChanged">
+
+                            <Picker.Items>
+                                <x:String>Professional</x:String>
+                                <x:String>Fresher</x:String>
+                                <x:String>Student</x:String>
+                                <x:String>Academic</x:String>
+                            </Picker.Items>
+
+                        </Picker>
+
+                    </Grid>
+
+                    <Label
+                        Text="This category will be selected automatically when creating a new resume."
+                        FontSize="12"
+                        TextColor="{AppThemeBinding Light=#6B7280, Dark=#AAAAAA}" />
+
+                </VerticalStackLayout>
+
+            </Border>
+
+            <!-- About -->
+            <Border
+                Padding="18"
+                BackgroundColor="{AppThemeBinding Light=White, Dark=#1E1E1E}"
+                Stroke="{AppThemeBinding Light=#E5E7EB, Dark=#333333}"
+                StrokeThickness="1">
+
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="14" />
+                </Border.StrokeShape>
+
+                <VerticalStackLayout Spacing="12">
+
+                    <Label
+                        Text="About CVPilot"
+                        FontSize="19"
+                        FontAttributes="Bold"
+                        TextColor="{AppThemeBinding Light=#111827, Dark=White}" />
+
+                    <Label
+                        Text="CVPilot - Your Career. Ready for Takeoff."
+                        FontSize="14"
+                        TextColor="{AppThemeBinding Light=#374151, Dark=#DDDDDD}" />
+
+                    <Label
+                        Text="Version 1.0"
+                        FontSize="12"
+                        TextColor="{AppThemeBinding Light=#6B7280, Dark=#AAAAAA}" />
+
+                </VerticalStackLayout>
+
+            </Border>
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+
+</ContentPage>

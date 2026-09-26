@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="CVPilot.Views.Sections.AddProjectPage"
+    Title="Add Project"
+    BackgroundColor="#F5F7FA">
+
+    <ScrollView>
+
+        <VerticalStackLayout
+            Padding="20"
+            Spacing="16">
+
+            <Label
+                Text="Project Details"
+                FontSize="28"
+                FontAttributes="Bold"/>
+
+            <Entry
+                x:Name="ProjectNameEntry"
+                Placeholder="Project Name"/>
+
+            <Entry
+                x:Name="TechnologyEntry"
+                Placeholder="Technologies (ASP.NET Core, SQL, MAUI...)"/>
+
+            <Editor
+                x:Name="DescriptionEditor"
+                Placeholder="Project Description"
+                AutoSize="TextChanges"
+                HeightRequest="120"/>
+
+            <Entry
+                x:Name="GithubEntry"
+                Placeholder="GitHub URL"/>
+
+            <Entry
+                x:Name="LiveDemoEntry"
+                Placeholder="Live Demo URL"/>
+
+            <Picker
+                x:Name="StartMonthPicker"
+                Title="Start Month"/>
+
+            <Entry
+                x:Name="StartYearEntry"
+                Placeholder="Start Year"
+                Keyboard="Numeric"/>
+
+            <Picker
+                x:Name="EndMonthPicker"
+                Title="End Month"/>
+
+            <Entry
+                x:Name="EndYearEntry"
+                Placeholder="End Year"
+                Keyboard="Numeric"/>
+
+            <HorizontalStackLayout>
+
+                <CheckBox
+                    x:Name="CurrentProjectCheckBox"/>
+
+                <Label
+                    VerticalOptions="Center"
+                    Text="Currently Working On This Project"/>
+
+            </HorizontalStackLayout>
+
+            <Button
+                x:Name="SaveButton"
+                Text="Save Project"
+                HeightRequest="52"
+                CornerRadius="12"
+                BackgroundColor="#2563EB"
+                TextColor="White"
+                Clicked="Save_Clicked"/>
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+
+</ContentPage>

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="CVPilot.Views.Sections.AddExperiencePage"
+    Title="Add Experience"
+    BackgroundColor="#F5F7FA">
+
+    <ScrollView>
+
+        <VerticalStackLayout
+            Padding="20"
+            Spacing="15">
+
+            <Label
+                Text="Experience Details"
+                FontSize="28"
+                FontAttributes="Bold"/>
+
+            <Entry
+                x:Name="JobTitleEntry"
+                Placeholder="Job Title (Software Engineer)"/>
+
+            <Entry
+                x:Name="CompanyEntry"
+                Placeholder="Company Name"/>
+
+            <Picker
+                x:Name="EmploymentTypePicker"
+                Title="Employment Type">
+
+                <Picker.Items>
+                    <x:String>Full Time</x:String>
+                    <x:String>Part Time</x:String>
+                    <x:String>Internship</x:String>
+                    <x:String>Contract</x:String>
+                    <x:String>Freelance</x:String>
+                </Picker.Items>
+
+            </Picker>
+
+            <Entry
+                x:Name="LocationEntry"
+                Placeholder="Location"/>
+
+            <!-- Start Date -->
+
+            <Grid ColumnDefinitions="*,10,*">
+
+                <Picker
+                    Grid.Column="0"
+                    x:Name="StartMonthPicker"
+                    Title="Start Month">
+
+                    <Picker.Items>
+                        <x:String>January</x:String>
+                        <x:String>February</x:String>
+                        <x:String>March</x:String>
+                        <x:String>April</x:String>
+                        <x:String>May</x:String>
+                        <x:String>June</x:String>
+                        <x:String>July</x:String>
+                        <x:String>August</x:String>
+                        <x:String>September</x:String>
+                        <x:String>October</x:String>
+                        <x:String>November</x:String>
+                        <x:String>December</x:String>
+                    </Picker.Items>
+
+                </Picker>
+
+                <Entry
+                    Grid.Column="2"
+                    x:Name="StartYearEntry"
+                    Placeholder="Start Year"
+                    Keyboard="Numeric"/>
+
+            </Grid>
+
+            <!-- End Date -->
+
+            <Grid ColumnDefinitions="*,10,*">
+
+                <Picker
+                    Grid.Column="0"
+                    x:Name="EndMonthPicker"
+                    Title="End Month">
+
+                    <Picker.Items>
+                        <x:String>January</x:String>
+                        <x:String>February</x:String>
+                        <x:String>March</x:String>
+                        <x:String>April</x:String>
+                        <x:String>May</x:String>
+                        <x:String>June</x:String>
+                        <x:String>July</x:String>
+                        <x:String>August</x:String>
+                        <x:String>September</x:String>
+                        <x:String>October</x:String>
+                        <x:String>November</x:String>
+                        <x:String>December</x:String>
+                    </Picker.Items>
+
+                </Picker>
+
+                <Entry
+                    Grid.Column="2"
+                    x:Name="EndYearEntry"
+                    Placeholder="End Year"
+                    Keyboard="Numeric"/>
+
+            </Grid>
+
+            <HorizontalStackLayout>
+
+                <CheckBox
+                    x:Name="CurrentJobCheckBox"/>
+
+                <Label
+                    VerticalOptions="Center"
+                    Text="I currently work here"/>
+
+            </HorizontalStackLayout>
+
+            <Editor
+                x:Name="DescriptionEditor"
+                Placeholder="Describe your responsibilities..."
+                HeightRequest="140"/>
+
+            <Button
+                x:Name="SaveButton"
+                Text="Save Experience"
+                HeightRequest="52"
+                CornerRadius="12"
+                BackgroundColor="#2563EB"
+                TextColor="White"
+                FontAttributes="Bold"
+                Clicked="Save_Clicked"/>
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+
+</ContentPage>

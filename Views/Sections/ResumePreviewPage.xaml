@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="CVPilot.Views.Resume.ResumePreviewPage"
+    Title="Resume Preview"
+    BackgroundColor="#E5E5E5">
+
+    <Grid RowDefinitions="Auto,*">
+
+        <!-- ========================= -->
+        <!-- Toolbar -->
+        <!-- ========================= -->
+
+        <Border
+            Grid.Row="0"
+            Margin="10"
+            Padding="8"
+            BackgroundColor="White">
+
+            <Grid
+                ColumnDefinitions="Auto,Auto,Auto,*,Auto"
+                ColumnSpacing="10">
+
+                <!-- Zoom Out -->
+
+                <Button
+                    Grid.Column="0"
+                    Text="-"
+                    WidthRequest="45"
+                    Clicked="ZoomOut_Clicked" />
+
+                <!-- Zoom Percentage -->
+
+                <Label
+                    x:Name="ZoomLabel"
+                    Grid.Column="1"
+                    Text="100%"
+                    FontSize="16"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center" />
+
+                <!-- Zoom In -->
+
+                <Button
+                    Grid.Column="2"
+                    Text="+"
+                    WidthRequest="45"
+                    Clicked="ZoomIn_Clicked" />
+
+                <!-- Empty Space -->
+
+                <Label Grid.Column="3"/>
+
+                <!-- Export Button -->
+
+                <Button
+                    x:Name="ExportButton"
+                    Grid.Column="4"
+                    Text="📄 Export PDF"
+                    Padding="15,8"
+                    Clicked="ExportPdf_Clicked" />
+
+            </Grid>
+
+        </Border>
+
+        <!-- ========================= -->
+        <!-- Resume -->
+        <!-- ========================= -->
+
+        <ScrollView Grid.Row="1">
+
+            <Grid
+                Padding="20"
+                HorizontalOptions="Center">
+
+                <Border
+                    x:Name="ResumeBorder"
+                    WidthRequest="794"
+                    Padding="144,67,144,67"
+                    BackgroundColor="White"
+                    Stroke="#CFCFCF">
+
+                    <VerticalStackLayout
+                        x:Name="ResumeLayout"
+                        Spacing="8"/>
+
+                </Border>
+            </Grid>
+
+        </ScrollView>
+
+    </Grid>
+
+</ContentPage>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="CVPilot.Views.Sections.AddAchievementPage"
+    Title="Achievement"
+    BackgroundColor="#F6F8FC">
+
+    <ScrollView>
+
+        <VerticalStackLayout
+            Padding="20"
+            Spacing="18">
+
+            <Label
+                Text="Achievement Details"
+                FontSize="28"
+                FontAttributes="Bold"
+                TextColor="#1E3A8A"/>
+
+            <Border
+                Background="White"
+                Stroke="#E5E7EB"
+                StrokeThickness="1"
+                StrokeShape="RoundRectangle 18"
+                Padding="20">
+
+                <VerticalStackLayout Spacing="16">
+
+                    <Entry
+                        x:Name="TitleEntry"
+                        Placeholder="Achievement Title"/>
+
+                    <Entry
+                        x:Name="OrganizationEntry"
+                        Placeholder="Organization"/>
+
+                    <Label
+                        Text="Achievement Date"
+                        FontAttributes="Bold"/>
+
+                    <DatePicker
+                        x:Name="AchievementDatePicker"/>
+
+                    <Editor
+                        x:Name="DescriptionEditor"
+                        Placeholder="Description"
+                        AutoSize="TextChanges"
+                        HeightRequest="120"/>
+
+                </VerticalStackLayout>
+
+            </Border>
+
+            <Button
+                x:Name="SaveButton"
+                Text="Save Achievement"
+                HeightRequest="55"
+                BackgroundColor="#2563EB"
+                TextColor="White"
+                CornerRadius="14"
+                Clicked="Save_Clicked"/>
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+
+</ContentPage>

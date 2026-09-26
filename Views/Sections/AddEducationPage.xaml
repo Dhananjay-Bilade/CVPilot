@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="CVPilot.Views.Sections.AddEducationPage"
+    BackgroundColor="#F5F7FA"
+    Title="Add Education">
+
+    <ScrollView>
+
+        <VerticalStackLayout
+            Padding="20"
+            Spacing="18">
+
+            <!-- Heading -->
+            <Label
+                Text="Education Details"
+                FontSize="28"
+                FontAttributes="Bold"
+                TextColor="#1F2937" />
+
+            <Label
+                Text="Enter your academic qualification details."
+                FontSize="14"
+                TextColor="Gray" />
+
+            <!-- Degree -->
+            <Label
+                Text="Degree"
+                FontAttributes="Bold" />
+
+            <Entry
+                x:Name="DegreeEntry"
+                Placeholder="B.E., B.Tech, MBA..."
+                ClearButtonVisibility="WhileEditing" />
+
+            <!-- Field -->
+            <Label
+                Text="Field of Study"
+                FontAttributes="Bold" />
+
+            <Entry
+                x:Name="FieldEntry"
+                Placeholder="Computer Science"
+                ClearButtonVisibility="WhileEditing" />
+
+            <!-- Institute -->
+            <Label
+                Text="Institute"
+                FontAttributes="Bold" />
+
+            <Entry
+                x:Name="InstituteEntry"
+                Placeholder="College / Institute Name"
+                ClearButtonVisibility="WhileEditing" />
+
+            <!-- University -->
+            <Label
+                Text="University"
+                FontAttributes="Bold" />
+
+            <Entry
+                x:Name="UniversityEntry"
+                Placeholder="University Name"
+                ClearButtonVisibility="WhileEditing" />
+
+            <!-- Start & End Year -->
+            <Grid ColumnDefinitions="*,15,*">
+
+                <VerticalStackLayout Grid.Column="0">
+
+                    <Label
+                        Text="Start Year"
+                        FontAttributes="Bold" />
+
+                    <Entry
+                        x:Name="StartYearEntry"
+                        Placeholder="2022"
+                        Keyboard="Numeric" />
+
+                </VerticalStackLayout>
+
+                <VerticalStackLayout Grid.Column="2">
+
+                    <Label
+                        Text="End Year"
+                        FontAttributes="Bold" />
+
+                    <Entry
+                        x:Name="EndYearEntry"
+                        Placeholder="2026"
+                        Keyboard="Numeric" />
+
+                </VerticalStackLayout>
+
+            </Grid>
+
+            <!-- Grade -->
+            <Label
+                Text="CGPA / Percentage"
+                FontAttributes="Bold" />
+
+            <Entry
+                x:Name="GradeEntry"
+                Placeholder="8.75 or 85%"
+                Keyboard="Text" />
+
+            <!-- Currently Studying -->
+            <Border
+                Stroke="#E5E7EB"
+                StrokeShape="RoundRectangle 12"
+                Padding="10">
+
+                <HorizontalStackLayout Spacing="10">
+
+                    <CheckBox
+                        x:Name="CurrentCheckBox" />
+
+                    <Label
+                        Text="Currently Studying"
+                        VerticalOptions="Center"
+                        FontAttributes="Bold" />
+
+                </HorizontalStackLayout>
+
+            </Border>
+
+            <!-- Description -->
+            <Label
+                Text="Description"
+                FontAttributes="Bold" />
+
+            <Editor
+                x:Name="DescriptionEditor"
+                Placeholder="Achievements, coursework, awards, etc."
+                HeightRequest="120"
+                AutoSize="TextChanges" />
+
+            <!-- Save Button -->
+            <Button
+                x:Name="SaveButton"
+                Text="Save Education"
+                HeightRequest="52"
+                CornerRadius="14"
+                FontSize="16"
+                FontAttributes="Bold"
+                BackgroundColor="#2563EB"
+                TextColor="White"
+                Clicked="Save_Clicked" />
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+
+</ContentPage>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="CVPilot.Views.Sections.CertificationsPage"
+    Title="Certifications"
+    BackgroundColor="#F6F8FC">
+
+    <Grid>
+
+        <CollectionView
+            x:Name="CertificationsCollection"
+            Margin="15">
+
+            <CollectionView.ItemTemplate>
+
+                <DataTemplate>
+
+                    <Border Style="{StaticResource SectionCard}">
+
+                        <VerticalStackLayout Spacing="10">
+
+                            <Label
+                                Text="{Binding CertificationName}"
+                                Style="{StaticResource SectionTitle}" />
+
+                            <Label
+                                Text="{Binding IssuingOrganization}"
+                                Style="{StaticResource Subtitle}" />
+
+                            <Label
+                                Text="{Binding ExpiryText}"
+                                FontAttributes="Italic"
+                                TextColor="Gray"/>
+
+                            <Grid
+                                Margin="0,10,0,0"
+                                ColumnDefinitions="*,20,*">
+
+                                <Button
+                                    Grid.Column="0"
+                                    Text="✏ Edit"
+                                    Style="{StaticResource PrimaryButton}"
+                                    Clicked="Edit_Clicked"
+                                    CommandParameter="{Binding Id}" />
+
+                                <Button
+                                    Grid.Column="2"
+                                    Text="🗑 Delete"
+                                    Style="{StaticResource DangerButton}"
+                                    Clicked="Delete_Clicked"
+                                    CommandParameter="{Binding Id}" />
+
+                            </Grid>
+
+                        </VerticalStackLayout>
+
+                    </Border>
+
+                </DataTemplate>
+
+            </CollectionView.ItemTemplate>
+
+            <CollectionView.EmptyView>
+
+                <VerticalStackLayout
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center">
+
+                    <Label
+                        Text="📜"
+                        FontSize="70"
+                        HorizontalOptions="Center"/>
+
+                    <Label
+                        Text="No Certifications Added"
+                        Style="{StaticResource SectionTitle}"
+                        HorizontalOptions="Center"/>
+
+                    <Label
+                        Text="Tap + to add your first certification."
+                        Style="{StaticResource Subtitle}"
+                        HorizontalOptions="Center"/>
+
+                </VerticalStackLayout>
+
+            </CollectionView.EmptyView>
+
+        </CollectionView>
+
+        <Button
+            Text="+"
+            WidthRequest="65"
+            HeightRequest="65"
+            CornerRadius="32"
+            FontSize="30"
+            BackgroundColor="#2563EB"
+            TextColor="White"
+            HorizontalOptions="End"
+            VerticalOptions="End"
+            Margin="25"
+            Clicked="AddCertification_Clicked"/>
+
+    </Grid>
+
+</ContentPage>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="CVPilot.Views.Sections.AddLanguagePage"
+    Title="Language"
+    BackgroundColor="#F6F8FC">
+
+    <ScrollView>
+
+        <VerticalStackLayout
+            Padding="20"
+            Spacing="18">
+
+            <Label
+                Text="Language Details"
+                FontSize="28"
+                FontAttributes="Bold"
+                TextColor="#1E3A8A"/>
+
+            <Border
+                Background="White"
+                Stroke="#E5E7EB"
+                StrokeThickness="1"
+                StrokeShape="RoundRectangle 18"
+                Padding="20">
+
+                <VerticalStackLayout Spacing="16">
+
+                    <Entry
+                        x:Name="LanguageNameEntry"
+                        Placeholder="Language Name" />
+
+                    <Label
+                        Text="Proficiency"
+                        FontAttributes="Bold"/>
+
+                    <Picker
+                        x:Name="ProficiencyPicker">
+
+                        <Picker.Items>
+                            <x:String>Beginner</x:String>
+                            <x:String>Intermediate</x:String>
+                            <x:String>Advanced</x:String>
+                            <x:String>Fluent</x:String>
+                            <x:String>Native</x:String>
+                        </Picker.Items>
+
+                    </Picker>
+
+                    <Label
+                        Text="Skills"
+                        FontAttributes="Bold"/>
+
+                    <HorizontalStackLayout>
+
+                        <CheckBox
+                            x:Name="ReadCheckBox"/>
+
+                        <Label
+                            Text="Read"
+                            VerticalOptions="Center"/>
+
+                    </HorizontalStackLayout>
+
+                    <HorizontalStackLayout>
+
+                        <CheckBox
+                            x:Name="WriteCheckBox"/>
+
+                        <Label
+                            Text="Write"
+                            VerticalOptions="Center"/>
+
+                    </HorizontalStackLayout>
+
+                    <HorizontalStackLayout>
+
+                        <CheckBox
+                            x:Name="SpeakCheckBox"/>
+
+                        <Label
+                            Text="Speak"
+                            VerticalOptions="Center"/>
+
+                    </HorizontalStackLayout>
+
+                </VerticalStackLayout>
+
+            </Border>
+
+            <Button
+                x:Name="SaveButton"
+                Text="Save Language"
+                HeightRequest="55"
+                BackgroundColor="#2563EB"
+                TextColor="White"
+                CornerRadius="14"
+                Clicked="Save_Clicked"/>
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+
+</ContentPage>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="CVPilot.Views.Sections.ObjectivePage"
+    Title="Career Objective"
+    BackgroundColor="#F6F8FC">
+
+    <ScrollView>
+
+        <VerticalStackLayout
+            Padding="20"
+            Spacing="18">
+
+            <Label
+                Text="Career Objective"
+                Style="{StaticResource PageTitle}" />
+
+            <Border
+                Style="{StaticResource SectionCard}">
+
+                <VerticalStackLayout Spacing="15">
+
+                    <Label
+                        Text="Tell recruiters about yourself"
+                        Style="{StaticResource Subtitle}" />
+
+                    <Editor
+                        x:Name="ObjectiveEditor"
+                        Style="{StaticResource RoundedEditor}"
+                        Placeholder="Example:
+
+Motivated Software Developer with strong knowledge of C#, .NET and SQL Server. Passionate about building scalable applications and continuously learning new technologies."
+                        HeightRequest="220"/>
+
+                </VerticalStackLayout>
+
+            </Border>
+
+            <Button
+                x:Name="SaveButton"
+                Text="Save Objective"
+                Style="{StaticResource PrimaryButton}"
+                Clicked="Save_Clicked"/>
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+
+</ContentPage>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="CVPilot.Views.Sections.LanguagesPage"
+    Title="Languages"
+    BackgroundColor="#F6F8FC">
+
+    <Grid>
+
+        <CollectionView
+            x:Name="LanguagesCollection"
+            Margin="15">
+
+            <CollectionView.ItemTemplate>
+
+                <DataTemplate>
+
+                    <Border
+                        Background="#FFFFFF"
+                        Stroke="#E5E7EB"
+                        StrokeThickness="1"
+                        StrokeShape="RoundRectangle 18"
+                        Padding="18"
+                        Margin="0,0,0,15">
+
+                        <VerticalStackLayout Spacing="10">
+
+                            <Label
+                                Text="{Binding LanguageName}"
+                                FontSize="22"
+                                FontAttributes="Bold"
+                                TextColor="#1E3A8A"/>
+
+                            <Label
+                                Text="{Binding Proficiency}"
+                                FontSize="16"
+                                TextColor="#2563EB"/>
+
+                            <Label
+                                Text="{Binding SkillsSummary}"
+                                FontSize="14"
+                                TextColor="Gray"/>
+
+                            <Grid
+                                Margin="0,12,0,0"
+                                ColumnDefinitions="*,20,*">
+
+                                <Button
+                                    Grid.Column="0"
+                                    Text="✏ Edit"
+                                    BackgroundColor="#2563EB"
+                                    TextColor="White"
+                                    HeightRequest="45"
+                                    CornerRadius="12"
+                                    FontAttributes="Bold"
+                                    Clicked="Edit_Clicked"
+                                    CommandParameter="{Binding Id}" />
+
+                                <Button
+                                    Grid.Column="2"
+                                    Text="🗑 Delete"
+                                    BackgroundColor="#DC2626"
+                                    TextColor="White"
+                                    HeightRequest="45"
+                                    CornerRadius="12"
+                                    FontAttributes="Bold"
+                                    Clicked="Delete_Clicked"
+                                    CommandParameter="{Binding Id}" />
+
+                            </Grid>
+
+                        </VerticalStackLayout>
+
+                    </Border>
+
+                </DataTemplate>
+
+            </CollectionView.ItemTemplate>
+
+            <CollectionView.EmptyView>
+
+                <VerticalStackLayout
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    Spacing="12">
+
+                    <Label
+                        Text="🌍"
+                        FontSize="70"
+                        HorizontalOptions="Center"/>
+
+                    <Label
+                        Text="No Languages Added"
+                        FontSize="22"
+                        FontAttributes="Bold"/>
+
+                    <Label
+                        Text="Tap + to add your first language."
+                        TextColor="Gray"/>
+
+                </VerticalStackLayout>
+
+            </CollectionView.EmptyView>
+
+        </CollectionView>
+
+        <Button
+            Text="+"
+            WidthRequest="65"
+            HeightRequest="65"
+            CornerRadius="32"
+            FontSize="30"
+            BackgroundColor="#2563EB"
+            TextColor="White"
+            HorizontalOptions="End"
+            VerticalOptions="End"
+            Margin="25"
+            Clicked="AddLanguage_Clicked"/>
+
+    </Grid>
+
+</ContentPage>

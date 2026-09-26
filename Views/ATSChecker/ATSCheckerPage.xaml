@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="CVPilot.Views.ATSChecker.ATSCheckerPage"
+    Title="ATS Checker"
+    BackgroundColor="{AppThemeBinding Light=#F5F7FB, Dark=#121212}">
+
+    <ScrollView>
+
+        <VerticalStackLayout
+            Padding="20"
+            Spacing="18">
+
+            <!-- Header -->
+            <VerticalStackLayout Spacing="4">
+
+                <Label
+                    Text="ATS Checker"
+                    FontSize="28"
+                    FontAttributes="Bold"
+                    TextColor="{AppThemeBinding Light=#111827, Dark=White}" />
+
+                <Label
+                    Text="Check your resume against a job description"
+                    FontSize="14"
+                    TextColor="{AppThemeBinding Light=#6B7280, Dark=#AAAAAA}" />
+
+            </VerticalStackLayout>
+
+
+            <!-- Resume Upload -->
+            <Border
+                Padding="18"
+                BackgroundColor="{AppThemeBinding Light=White, Dark=#1E1E1E}"
+                Stroke="{AppThemeBinding Light=#E5E7EB, Dark=#333333}"
+                StrokeThickness="1">
+
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="16" />
+                </Border.StrokeShape>
+
+                <VerticalStackLayout Spacing="12">
+
+                    <Label
+                        Text="1. Upload Resume"
+                        FontSize="19"
+                        FontAttributes="Bold"
+                        TextColor="{AppThemeBinding Light=#111827, Dark=White}" />
+
+                    <Label
+                        Text="Supported formats: PDF, DOCX"
+                        FontSize="13"
+                        TextColor="{AppThemeBinding Light=#6B7280, Dark=#AAAAAA}" />
+
+                    <Button
+                        Text="Choose Resume"
+                        Clicked="ChooseResume_Clicked"
+                        BackgroundColor="#2563EB"
+                        TextColor="White"
+                        CornerRadius="10"
+                        Padding="20,12" />
+
+                    <Label
+                        x:Name="SelectedFileLabel"
+                        Text="No resume selected"
+                        FontSize="13"
+                        LineBreakMode="TailTruncation"
+                        TextColor="{AppThemeBinding Light=#374151, Dark=#DDDDDD}" />
+
+                </VerticalStackLayout>
+
+            </Border>
+
+
+            <!-- Job Description -->
+            <Border
+                Padding="18"
+                BackgroundColor="{AppThemeBinding Light=White, Dark=#1E1E1E}"
+                Stroke="{AppThemeBinding Light=#E5E7EB, Dark=#333333}"
+                StrokeThickness="1">
+
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="16" />
+                </Border.StrokeShape>
+
+                <VerticalStackLayout Spacing="12">
+
+                    <Label
+                        Text="2. Job Description"
+                        FontSize="19"
+                        FontAttributes="Bold"
+                        TextColor="{AppThemeBinding Light=#111827, Dark=White}" />
+
+                    <Label
+                        Text="Paste the job description below"
+                        FontSize="13"
+                        TextColor="{AppThemeBinding Light=#6B7280, Dark=#AAAAAA}" />
+
+                    <Editor
+                        x:Name="JobDescriptionEditor"
+                        Placeholder="Paste the complete job description here..."
+                        AutoSize="TextChanges"
+                        MinimumHeightRequest="180"
+                        MaximumHeightRequest="350"
+                        BackgroundColor="{AppThemeBinding Light=#F9FAFB, Dark=#252525}"
+                        TextColor="{AppThemeBinding Light=#111827, Dark=White}"
+                        PlaceholderColor="{AppThemeBinding Light=#9CA3AF, Dark=#777777}" />
+
+                </VerticalStackLayout>
+
+            </Border>
+
+
+            <!-- Analyze Buttons -->
+            <Grid
+                ColumnDefinitions="*,*"
+                ColumnSpacing="10">
+
+                <Button
+                    Grid.Column="0"
+                    x:Name="AnalyzeButton"
+                    Text="Analyze Resume"
+                    IsEnabled="False"
+                    Clicked="Analyze_Clicked"
+                    BackgroundColor="#0F766E"
+                    TextColor="White"
+                    CornerRadius="10"
+                    Padding="10,13"
+                    FontAttributes="Bold" />
+
+                <Button
+                    Grid.Column="1"
+                    x:Name="MatchButton"
+                    Text="Match Job"
+                    IsEnabled="False"
+                    Clicked="MatchJob_Clicked"
+                    BackgroundColor="#7C3AED"
+                    TextColor="White"
+                    CornerRadius="10"
+                    Padding="10,13"
+                    FontAttributes="Bold" />
+
+            </Grid>
+
+
+            <!-- ATS Result -->
+            <Border
+                x:Name="ResultCard"
+                IsVisible="False"
+                Padding="20"
+                BackgroundColor="{AppThemeBinding Light=White, Dark=#1E1E1E}"
+                Stroke="{AppThemeBinding Light=#E5E7EB, Dark=#333333}"
+                StrokeThickness="1">
+
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="16" />
+                </Border.StrokeShape>
+
+                <VerticalStackLayout Spacing="14">
+
+                    <Label
+                        Text="ATS Result"
+                        FontSize="20"
+                        FontAttributes="Bold"
+                        TextColor="{AppThemeBinding Light=#111827, Dark=White}" />
+
+                    <Label
+                        x:Name="ScoreLabel"
+                        Text="-- / 100"
+                        FontSize="40"
+                        FontAttributes="Bold"
+                        HorizontalOptions="Center"
+                        TextColor="#2563EB" />
+
+                    <Label
+                        x:Name="ResultMessageLabel"
+                        Text=""
+                        FontSize="14"
+                        HorizontalTextAlignment="Center"
+                        TextColor="{AppThemeBinding Light=#6B7280, Dark=#AAAAAA}" />
+
+                    <BoxView
+                        HeightRequest="1"
+                        BackgroundColor="{AppThemeBinding Light=#E5E7EB, Dark=#333333}" />
+
+                    <Label
+                        Text="Score Breakdown"
+                        FontSize="18"
+                        FontAttributes="Bold"
+                        TextColor="{AppThemeBinding Light=#111827, Dark=White}" />
+
+                    <Grid
+                        ColumnDefinitions="*,Auto"
+                        RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto"
+                        RowSpacing="9">
+
+                        <Label
+                            Text="Contact Information"
+                            Grid.Row="0" />
+
+                        <Label
+                            x:Name="ContactScoreLabel"
+                            Text="0/15"
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            FontAttributes="Bold" />
+
+                        <Label
+                            Text="Resume Sections"
+                            Grid.Row="1" />
+
+                        <Label
+                            x:Name="SectionScoreLabel"
+                            Text="0/20"
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            FontAttributes="Bold" />
+
+                        <Label
+                            Text="Skills"
+                            Grid.Row="2" />
+
+                        <Label
+                            x:Name="SkillsScoreLabel"
+                            Text="0/20"
+                            Grid.Row="2"
+                            Grid.Column="1"
+                            FontAttributes="Bold" />
+
+                        <Label
+                            Text="Experience"
+                            Grid.Row="3" />
+
+                        <Label
+                            x:Name="ExperienceScoreLabel"
+                            Text="0/15"
+                            Grid.Row="3"
+                            Grid.Column="1"
+                            FontAttributes="Bold" />
+
+                        <Label
+                            Text="Education"
+                            Grid.Row="4" />
+
+                        <Label
+                            x:Name="EducationScoreLabel"
+                            Text="0/10"
+                            Grid.Row="4"
+                            Grid.Column="1"
+                            FontAttributes="Bold" />
+
+                        <Label
+                            Text="Keywords"
+                            Grid.Row="5" />
+
+                        <Label
+                            x:Name="KeywordScoreLabel"
+                            Text="0/10"
+                            Grid.Row="5"
+                            Grid.Column="1"
+                            FontAttributes="Bold" />
+
+                        <Label
+                            Text="ATS Formatting"
+                            Grid.Row="6" />
+
+                        <Label
+                            x:Name="FormattingScoreLabel"
+                            Text="0/10"
+                            Grid.Row="6"
+                            Grid.Column="1"
+                            FontAttributes="Bold" />
+
+                    </Grid>
+
+                    <BoxView
+                        HeightRequest="1"
+                        BackgroundColor="{AppThemeBinding Light=#E5E7EB, Dark=#333333}" />
+
+                    <Label
+                        Text="Detected Skills"
+                        FontSize="18"
+                        FontAttributes="Bold" />
+
+                    <Label
+                        x:Name="SkillsLabel"
+                        Text=""
+                        FontSize="13"
+                        LineBreakMode="WordWrap" />
+
+                    <Label
+                        Text="Recommendations"
+                        FontSize="18"
+                        FontAttributes="Bold" />
+
+                    <Label
+                        x:Name="RecommendationsLabel"
+                        Text=""
+                        FontSize="13"
+                        LineBreakMode="WordWrap" />
+
+                </VerticalStackLayout>
+
+            </Border>
+
+
+            <!-- Job Match Result -->
+            <Border
+                x:Name="JobMatchCard"
+                IsVisible="False"
+                Padding="20"
+                BackgroundColor="{AppThemeBinding Light=White, Dark=#1E1E1E}"
+                Stroke="{AppThemeBinding Light=#E5E7EB, Dark=#333333}"
+                StrokeThickness="1">
+
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="16" />
+                </Border.StrokeShape>
+
+                <VerticalStackLayout Spacing="14">
+
+                    <Label
+                        Text="Job Match"
+                        FontSize="20"
+                        FontAttributes="Bold"
+                        TextColor="{AppThemeBinding Light=#111827, Dark=White}" />
+
+                    <Label
+                        x:Name="MatchPercentageLabel"
+                        Text="0%"
+                        FontSize="40"
+                        FontAttributes="Bold"
+                        HorizontalOptions="Center"
+                        TextColor="#7C3AED" />
+
+                    <Label
+                        Text="Keyword Match"
+                        FontSize="13"
+                        HorizontalOptions="Center"
+                        TextColor="{AppThemeBinding Light=#6B7280, Dark=#AAAAAA}" />
+
+                    <BoxView
+                        HeightRequest="1"
+                        BackgroundColor="{AppThemeBinding Light=#E5E7EB, Dark=#333333}" />
+
+                    <Label
+                        Text="Matched Keywords"
+                        FontSize="18"
+                        FontAttributes="Bold" />
+
+                    <Label
+                        x:Name="MatchedKeywordsLabel"
+                        Text="None"
+                        FontSize="13"
+                        LineBreakMode="WordWrap" />
+
+                    <Label
+                        Text="Missing Keywords"
+                        FontSize="18"
+                        FontAttributes="Bold" />
+
+                    <Label
+                        x:Name="MissingKeywordsLabel"
+                        Text="None"
+                        FontSize="13"
+                        LineBreakMode="WordWrap" />
+
+                    <Label
+                        Text="Job Match Recommendations"
+                        FontSize="18"
+                        FontAttributes="Bold" />
+
+                    <Label
+                        x:Name="JobRecommendationsLabel"
+                        Text="None"
+                        FontSize="13"
+                        LineBreakMode="WordWrap" />
+
+                </VerticalStackLayout>
+
+            </Border>
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+
+</ContentPage>

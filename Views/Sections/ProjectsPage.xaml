@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="CVPilot.Views.Sections.ProjectsPage"
+    Title="Projects"
+    BackgroundColor="#F6F8FC">
+
+    <Grid>
+
+        <CollectionView
+            x:Name="ProjectsCollection"
+            Margin="15">
+
+            <CollectionView.ItemTemplate>
+
+                <DataTemplate>
+
+                    <Border
+                        Background="#FFFFFF"
+                        Stroke="#E5E7EB"
+                        StrokeThickness="1"
+                        StrokeShape="RoundRectangle 18"
+                        Padding="18"
+                        Margin="0,0,0,15">
+
+                        <VerticalStackLayout Spacing="10">
+
+                            <Label
+                                Text="{Binding ProjectName}"
+                                FontSize="22"
+                                FontAttributes="Bold"
+                                TextColor="#1E3A8A"/>
+
+                            <Label
+                                Text="{Binding Technologies}"
+                                FontSize="15"
+                                TextColor="#2563EB"/>
+
+                            <Label
+                                Text="{Binding Duration}"
+                                FontSize="14"
+                                TextColor="Gray"/>
+
+                            <Label
+                                Text="{Binding Description}"
+                                LineBreakMode="WordWrap"
+                                MaxLines="4"
+                                FontSize="15"/>
+
+                            <Grid
+                                Margin="0,8,0,0"
+                                ColumnDefinitions="*,10,*">
+
+                                <Button
+                                    Grid.Column="0"
+                                    Text="💻 GitHub"
+                                    Clicked="Github_Clicked"
+                                    CommandParameter="{Binding GithubLink}"
+                                    BackgroundColor="#24292E"
+                                    TextColor="White"
+                                    CornerRadius="10"/>
+
+                                <Button
+                                    Grid.Column="2"
+                                    Text="🌐 Live Demo"
+                                    Clicked="Live_Clicked"
+                                    CommandParameter="{Binding LiveLink}"
+                                    BackgroundColor="#2563EB"
+                                    TextColor="White"
+                                    CornerRadius="10"/>
+
+                            </Grid>
+
+                            <Grid
+                                Margin="0,10,0,0"
+                                ColumnDefinitions="*,20,*">
+
+                                <Button
+                                    Grid.Column="0"
+                                    Text="✏ Edit"
+                                    Clicked="Edit_Clicked"
+                                    CommandParameter="{Binding Id}"
+                                    BackgroundColor="#2563EB"
+                                    TextColor="White"
+                                    CornerRadius="12"/>
+
+                                <Button
+                                    Grid.Column="2"
+                                    Text="🗑 Delete"
+                                    Clicked="Delete_Clicked"
+                                    CommandParameter="{Binding Id}"
+                                    BackgroundColor="#DC2626"
+                                    TextColor="White"
+                                    CornerRadius="12"/>
+
+                            </Grid>
+
+                        </VerticalStackLayout>
+
+                    </Border>
+
+                </DataTemplate>
+
+            </CollectionView.ItemTemplate>
+
+            <CollectionView.EmptyView>
+
+                <VerticalStackLayout
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center">
+
+                    <Label
+                        Text="📁"
+                        FontSize="70"
+                        HorizontalOptions="Center"/>
+
+                    <Label
+                        Text="No Projects Added"
+                        FontSize="22"
+                        FontAttributes="Bold"
+                        HorizontalOptions="Center"/>
+
+                    <Label
+                        Text="Tap + to add your first project."
+                        TextColor="Gray"
+                        HorizontalOptions="Center"/>
+
+                </VerticalStackLayout>
+
+            </CollectionView.EmptyView>
+
+        </CollectionView>
+
+        <Button
+            Text="+"
+            WidthRequest="65"
+            HeightRequest="65"
+            CornerRadius="32"
+            FontSize="30"
+            BackgroundColor="#2563EB"
+            TextColor="White"
+            HorizontalOptions="End"
+            VerticalOptions="End"
+            Margin="25"
+            Clicked="AddProject_Clicked"/>
+
+    </Grid>
+
+</ContentPage>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="CVPilot.Views.Sections.AddCertificationPage"
+    Title="Certification"
+    BackgroundColor="#F6F8FC">
+
+    <ScrollView>
+
+        <VerticalStackLayout
+            Padding="20"
+            Spacing="18">
+
+            <Label
+                Text="Certification Details"
+                Style="{StaticResource PageTitle}" />
+
+            <Border Style="{StaticResource SectionCard}">
+
+                <VerticalStackLayout Spacing="15">
+
+                    <Entry
+                        x:Name="CertificationNameEntry"
+                        Placeholder="Certification Name"
+                        Style="{StaticResource RoundedEntry}" />
+
+                    <Entry
+                        x:Name="OrganizationEntry"
+                        Placeholder="Issuing Organization"
+                        Style="{StaticResource RoundedEntry}" />
+
+                    <Entry
+                        x:Name="CredentialIdEntry"
+                        Placeholder="Credential ID"
+                        Style="{StaticResource RoundedEntry}" />
+
+                    <Entry
+                        x:Name="CredentialUrlEntry"
+                        Placeholder="Credential URL"
+                        Keyboard="Url"
+                        Style="{StaticResource RoundedEntry}" />
+
+                    <Label Text="Issue Date"/>
+
+                    <DatePicker
+                        x:Name="IssueDatePicker" />
+
+                    <HorizontalStackLayout>
+
+                        <CheckBox
+                            x:Name="NoExpiryCheckBox"
+                            CheckedChanged="NoExpiryCheckBox_CheckedChanged"/>
+
+                        <Label
+                            VerticalOptions="Center"
+                            Text="This certification does not expire"/>
+
+                    </HorizontalStackLayout>
+
+                    <Label
+                        x:Name="ExpiryDateLabel"
+                        Text="Expiry Date"/>
+
+                    <DatePicker
+                        x:Name="ExpiryDatePicker"/>
+
+                </VerticalStackLayout>
+
+            </Border>
+
+            <Button
+                x:Name="SaveButton"
+                Text="Save Certification"
+                Style="{StaticResource PrimaryButton}"
+                Clicked="Save_Clicked"/>
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+
+</ContentPage>

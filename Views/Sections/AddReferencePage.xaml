@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="CVPilot.Views.Sections.AddReferencePage"
+    Title="Reference"
+    BackgroundColor="#F6F8FC">
+
+    <ScrollView>
+
+        <VerticalStackLayout
+            Padding="20"
+            Spacing="18">
+
+            <Label
+                Text="Reference Details"
+                FontSize="28"
+                FontAttributes="Bold"
+                TextColor="#1E3A8A"/>
+
+            <Border
+                Background="White"
+                Stroke="#E5E7EB"
+                StrokeThickness="1"
+                StrokeShape="RoundRectangle 18"
+                Padding="20">
+
+                <VerticalStackLayout Spacing="16">
+
+                    <Entry
+                        x:Name="FullNameEntry"
+                        Placeholder="Full Name"/>
+
+                    <Entry
+                        x:Name="DesignationEntry"
+                        Placeholder="Designation"/>
+
+                    <Entry
+                        x:Name="CompanyEntry"
+                        Placeholder="Company Name"/>
+
+                    <Entry
+                        x:Name="EmailEntry"
+                        Placeholder="Email"
+                        Keyboard="Email"/>
+
+                    <Entry
+                        x:Name="PhoneEntry"
+                        Placeholder="Phone Number"
+                        Keyboard="Telephone"/>
+
+                    <Entry
+                        x:Name="RelationshipEntry"
+                        Placeholder="Relationship"/>
+
+                </VerticalStackLayout>
+
+            </Border>
+
+            <Button
+                x:Name="SaveButton"
+                Text="Save Reference"
+                HeightRequest="55"
+                BackgroundColor="#2563EB"
+                TextColor="White"
+                CornerRadius="14"
+                Clicked="Save_Clicked"/>
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+
+</ContentPage>

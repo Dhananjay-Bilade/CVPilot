@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="CVPilot.Views.Home.HomePage"
+    Shell.NavBarIsVisible="False"
+    BackgroundColor="{AppThemeBinding Light=#F5F7FA, Dark=#121212}">
+
+    <ScrollView>
+
+        <VerticalStackLayout
+            Padding="25,35,25,30"
+            Spacing="20">
+
+            <!-- CVPilot Logo -->
+
+            <Image
+                Source="appicon2.jpeg"
+                HeightRequest="120"
+                WidthRequest="120"
+                Aspect="AspectFit"
+                HorizontalOptions="Center" />
+
+            <!-- App Name -->
+
+            <Label
+                Text="CVPilot"
+                FontSize="34"
+                FontAttributes="Bold"
+                HorizontalOptions="Center"
+                TextColor="{AppThemeBinding Light=#1E3A8A, Dark=#60A5FA}" />
+
+            <!-- Professional Tagline -->
+
+            <Label
+                Text="Create a professional resume that gets you noticed."
+                FontSize="17"
+                HorizontalTextAlignment="Center"
+                HorizontalOptions="Center"
+                TextColor="{AppThemeBinding Light=#6B7280, Dark=#B0B0B0}"
+                Margin="15,0,15,10" />
+
+            <!-- My Resumes -->
+
+            <Button
+                Text="📄  My Resumes"
+                HeightRequest="60"
+                CornerRadius="15"
+                BackgroundColor="#2563EB"
+                TextColor="White"
+                FontAttributes="Bold"
+                FontSize="16"
+                Clicked="MyResume_Clicked" />
+
+            <!-- Create Resume -->
+
+            <Button
+                Text="＋  Create New Resume"
+                HeightRequest="60"
+                CornerRadius="15"
+                BackgroundColor="#14B8A6"
+                TextColor="White"
+                FontAttributes="Bold"
+                FontSize="16"
+                Clicked="CreateResume_Clicked" />
+
+            <!-- Settings -->
+
+            <Button
+                Text="⚙  Settings"
+                HeightRequest="60"
+                CornerRadius="15"
+                BackgroundColor="#374151"
+                TextColor="White"
+                FontAttributes="Bold"
+                FontSize="16"
+                Clicked="Settings_Clicked" />
+
+            <!-- ATS Checker -->
+
+            <Button
+                Text="ATS Checker"
+                HeightRequest="60"
+                CornerRadius="15"
+                BackgroundColor="#7C3AED"
+                TextColor="White"
+                FontAttributes="Bold"
+                FontSize="16"
+                Clicked="ATSChecker_Clicked" />
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+
+</ContentPage>

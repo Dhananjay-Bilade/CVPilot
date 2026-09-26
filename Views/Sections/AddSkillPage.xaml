@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="CVPilot.Views.Sections.AddSkillPage"
+    Title="Add Skill"
+    BackgroundColor="#F5F7FA">
+
+    <ScrollView>
+
+        <VerticalStackLayout
+            Padding="20"
+            Spacing="16">
+
+            <Label
+                Text="Skill Details"
+                FontSize="28"
+                FontAttributes="Bold"/>
+
+            <Entry
+                x:Name="SkillNameEntry"
+                Placeholder="Skill Name (C#, SQL, ASP.NET Core...)"/>
+
+            <Picker
+                x:Name="CategoryPicker"
+                Title="Skill Category">
+
+                <Picker.Items>
+                    <x:String>Programming</x:String>
+                    <x:String>Database</x:String>
+                    <x:String>Front-End</x:String>
+                    <x:String>Back-End</x:String>
+                    <x:String>Tools and Technology</x:String>
+                    <x:String>Tools</x:String>
+                    <x:String>Frameworks</x:String>
+                    <x:String>Technology</x:String>
+                    <x:String>Concepts</x:String>
+                    <x:String>Domain</x:String>
+                    <x:String>Cloud</x:String>
+                    <x:String>DevOps</x:String>
+                    <x:String>AI / ML</x:String>
+                    <x:String>Soft Skills</x:String>
+                    <x:String>Languages</x:String>
+                    <x:String>Other</x:String>
+                </Picker.Items>
+
+            </Picker>
+
+            <Label
+                Text="Skill Level (%)"
+                FontAttributes="Bold"/>
+
+            <Slider
+                x:Name="SkillLevelSlider"
+                Minimum="0"
+                Maximum="100"
+                Value="80"
+                ValueChanged="SkillLevelSlider_ValueChanged"/>
+
+            <Label
+                x:Name="SkillLevelLabel"
+                Text="80%"
+                HorizontalOptions="Center"
+                FontSize="20"
+                FontAttributes="Bold"
+                TextColor="#2563EB"/>
+
+            <Button
+                x:Name="SaveButton"
+                Text="Save Skill"
+                HeightRequest="52"
+                CornerRadius="12"
+                BackgroundColor="#2563EB"
+                TextColor="White"
+                FontAttributes="Bold"
+                Clicked="Save_Clicked"/>
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+
+</ContentPage>
